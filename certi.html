@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificate</title>
+
+</head>
+<style>
+    body{
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .main{
+        height: 478px;
+        width: 600px;
+        border: 2px solid black;
+        margin: 20px;
+        padding-left: 8px;
+        padding-right: 5px;
+        background-color:white;
+        color:   rgb(30, 31, 53);
+        /* text-align: center; */
+    }
+    h1 img{
+        width: 40px;
+        height: 40px;
+        margin-right: 20%;
+        /* align-items: center; */
+    }
+    #l{
+        margin-left: 40%;
+        margin-top: 0;
+        font-size: small;
+    }
+    .t{
+        margin-left: 30%;
+        font-size: 20px;
+    }
+    #h{
+        text-align: center;
+        font-weight: bold;
+        font-size: 30px;
+    }
+    .ls{
+        border: 1px solid black;
+        width: 100px;
+    }
+    .si img{
+        width: 80px;
+        height: 30px;
+    }
+</style>
+<body>
+    <div class="main" id="m">
+    <h1 ><img src="./images/logo.png" alt="">Certificate<p id="l">Of Appretiation</p></h1>
+    <div class="t">This is certified to</div>
+    <div id="h"></div><p id="q">Of department <b id="q1"></b> of college <b id="q2"></b>for activially participation in the <b id="q3"></b> week internship program and has showed an active behaviour.    </p><br>
+    <div class="si"><img src="./images/sign.jpeg" alt=""></div>
+    <div class="ls"></div>
+    <div class="s">Signature</div>
+    </div><br>
+    <button onclick="dn()">Download Certificate</button>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script>
+    let name=localStorage.getItem("uname");
+    let depart=localStorage.getItem("udep");
+    let coll=localStorage.getItem("uclg");
+    let week=localStorage.getItem("uw");
+    document.getElementById("h").innerHTML= name;
+    document.getElementById("q1").innerHTML= depart;
+    document.getElementById("q2").innerHTML= coll;
+    document.getElementById("q3").innerHTML= week;
+
+    function dn(){
+        const cert=document.getElementById("m");
+
+        html2canvas(cert).then(canvas => {
+            const link=document.createElement("a");
+            link.download="cert.png";
+            link.href=canvas.toDataURL();
+            link.click();
+        });
+    }
+</script>
+</html>

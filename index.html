@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+</head>
+<style>
+    nav{
+        display: flex;
+        gap: 40%;
+        padding: 15px;
+        background-color:  rgb(47,106,123);
+        color: white;
+        flex-wrap: wrap;
+    }
+    .l img{
+        width: 50px;
+        height: 50px;
+    }
+    .o{
+        display: flex;
+        gap: 20px;
+    }
+    .o a{
+        text-decoration: none;
+        color: white;
+    }
+    .i{
+        gap: 10%;
+        width: 30%;
+        border: 1px solid black;
+        border-radius: 5px;
+        text-align: center;
+    }
+    button{
+        width: 15%;
+        height: 50px;
+        background-color: blue;
+        color: white;
+        margin-left: 43%;
+        border-radius: 5px;
+    } 
+
+</style>
+<body>
+    <nav>
+        <div class="l"><img src="./images/logo.png" alt=""></div>
+        <div class="o" >
+            <div ><a href="./index.html">Home</a></div>
+            <div><a href="./about.html">About</a></div>
+            <div><a href="./help.html">Help</a></div>
+        </div>
+    </nav>
+    <section>
+        <form action="" align="center" name="frm">
+        <h1><b>Enter Your Details Here</b></h1>
+        <input type="text" name="na" id="yn" class="i" placeholder="Enter your name" onchange="nam();"><br><br>
+        <input type="text" name="de" id="yd" class="i" placeholder="Enter your department" onchange="dep();" ><br><br>
+        <input type="text" name="cl" class="i" id="yc" placeholder="Enter your college name" onchange="clg();"><br><br>
+        <input type="text" name="we" id="yw" class="i" placeholder="Enter no of weeks" onchange="w();" ><br><br>
+        </form>
+    </section>
+    <button align="center" onclick="c();">Get Certificate</button>
+</body>
+<script>
+    var r,d,e,z;
+    function nam(){
+        r=frm.na.value;
+    } 
+    function dep(){
+        d=frm.de.value;
+    }
+    function clg(){
+        e=frm.cl.value;
+    }
+      function w(){
+        z=frm.we.value;
+    }
+    function c(){
+        // alert("This is certified to"+" "+r+" of department "+d+" of college "+e+" Thank You");
+        let name=document.getElementById("yn").value;
+        let depart=document.getElementById("yd").value;
+        let coll=document.getElementById("yc").value;
+        let week=document.getElementById("yw").value;
+        localStorage.setItem("uname",name);
+        localStorage.setItem("udep",depart);
+        localStorage.setItem("uclg",coll);
+        localStorage.setItem("uw",week);
+        window.location.href="certi.html";
+    }
+</script>
+</html>
